@@ -1,4 +1,5 @@
 import HeaderBox from '@/components/header-box'
+import TotalBalanceBox from '@/components/total-balance-box'
 
 export default function HomePage() {
 	const loggedIn = {
@@ -13,6 +14,11 @@ export default function HomePage() {
 						title='Welcome'
 						user={loggedIn?.firstName || 'Guest'}
 						subtext='Access and manage your account and trasactions effectively.'
+					/>
+					<TotalBalanceBox
+						accounts={[]}
+						totalBanks={1}
+						totalCurrentBalance={2024.5}
 					/>
 				</header>
 			</div>
