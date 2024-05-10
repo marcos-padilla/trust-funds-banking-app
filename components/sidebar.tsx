@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import PlaidLink from './plaid-link'
 
 interface SiderbarProps {
 	user: User
@@ -85,6 +86,7 @@ export default function Sidebar({ user }: SiderbarProps) {
 						</Link>
 					)
 				})}
+				<PlaidLink user={user} />
 			</nav>
 		</section>
 	)
