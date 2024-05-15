@@ -2,7 +2,13 @@
 
 import { plaidClient } from '@/lib/plaid'
 import { parseStringify } from '@/lib/utils'
-import { Products, CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum } from 'plaid'
+import {
+	Products,
+	CountryCode,
+	ProcessorTokenCreateRequest,
+	ProcessorTokenCreateRequestProcessorEnum,
+} from 'plaid'
+import { addFundingSource } from './dwolla-actions'
 
 export async function createLinkToken(user: User) {
 	try {
@@ -19,6 +25,37 @@ export async function createLinkToken(user: User) {
 		return parseStringify({ linkToken: response.data.link_token })
 	} catch (e) {
 		console.error(e)
+	}
+}
+
+export async function createBankAccount({
+	userId,
+	bankId,
+	accountId,
+	accessToken,
+	fundingSourceUrl,
+	shareableId,
+}: CreateBankAccountProps) {
+	try {
+		const { database } = await createAdminClient()
+
+		const bankAccount = await database.createDocument(
+			DATABASE_ID!,
+			BANK_COLLECTION_ID!,
+			ID.unique(),
+			{
+				userId,
+				bankId,
+				accountId,
+				accessToken,
+				fundingSourceUrl,
+				shareableId,
+			}
+		)
+
+		return parseStringify(bankAccount)
+	} catch (error) {
+		console.log(error)
 	}
 }
 
