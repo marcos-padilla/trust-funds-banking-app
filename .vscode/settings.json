@@ -1,3 +1,9 @@
 {
-	"conventionalCommits.scopes": ["frontend", "files", "component", "backend"]
+	"conventionalCommits.scopes": [
+		"frontend",
+		"files",
+		"component",
+		"backend",
+		"auth"
+	]
 }
