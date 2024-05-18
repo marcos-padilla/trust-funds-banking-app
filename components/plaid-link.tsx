@@ -6,7 +6,7 @@ import {
 	usePlaidLink,
 } from 'react-plaid-link'
 import { useRouter } from 'next/navigation'
-import { createLinkToken, exchangePublicToken } from '@/actions/user.actions'
+import { createLinkToken, exchangePublicToken } from '@/actions/user-actions'
 import Image from 'next/image'
 
 interface PlaidLinkProps {
