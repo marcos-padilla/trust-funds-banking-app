@@ -12,7 +12,7 @@ type Account = {
 	shareableId: string
 }
 
-type User = {
+interface User {
 	$id: string
 	email: string
 	userId: string
@@ -68,4 +68,17 @@ interface CreateBankAccountProps {
 	bankId: string
 	fundingSourceUrl: string
 	shareableId: string
+}
+
+interface SignUpParams {
+	firstName: string
+	lastName: string
+	address1: string
+	city: string
+	state: string
+	postalCode: string
+	dateOfBirth: string
+	ssn: string
+	email: string
+	password: string
 }
