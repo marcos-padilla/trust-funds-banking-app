@@ -1,3 +1,5 @@
+'use client'
+
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet'
 import Image from 'next/image'
