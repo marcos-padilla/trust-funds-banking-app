@@ -5,33 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import PlaidLink from './plaid-link'
+import { sidebarLinks } from '@/lib/consts'
 
 interface SiderbarProps {
 	user: User
 }
-
-export const sidebarLinks = [
-	{
-		imgURL: '/icons/home.svg',
-		route: '/',
-		label: 'Home',
-	},
-	{
-		imgURL: '/icons/dollar-circle.svg',
-		route: '/my-banks',
-		label: 'My Banks',
-	},
-	{
-		imgURL: '/icons/transaction.svg',
-		route: '/transaction-history',
-		label: 'Transaction History',
-	},
-	{
-		imgURL: '/icons/money-send.svg',
-		route: '/payment-transfer',
-		label: 'Transfer Funds',
-	},
-]
 
 export default function Sidebar({ user }: SiderbarProps) {
 	const pathname = usePathname()
